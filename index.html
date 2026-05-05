@@ -14,7 +14,9 @@
             .split("&")
             .map(function (s) { return s.replace(/~and~/g, "&"); })
             .join("?");
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+          // Only strip a trailing "/" if present; otherwise keep pathname intact.
+          var basePath = l.pathname.endsWith("/") ? l.pathname.slice(0, -1) : l.pathname;
+          window.history.replaceState(null, null, basePath + decoded + l.hash);
         }
       })(window.location);
     </script>
@@ -27,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>KawKaw Kopitiam</title>
-    <script type="module" crossorigin src="/kkks-customer-app/assets/index-BeRM7PUb.js"></script>
+    <script type="module" crossorigin src="/kkks-customer-app/assets/index-JNCupqrB.js"></script>
     <link rel="stylesheet" crossorigin href="/kkks-customer-app/assets/index-Dx7BGydh.css">
   <link rel="manifest" href="/kkks-customer-app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/kkks-customer-app/registerSW.js"></script></head>
   <body>
